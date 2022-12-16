@@ -86,3 +86,25 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+var totalMonths = 0;
+var netTotal = 0;
+var averagePL = 0;
+var greatestP = 0;
+var greatestPDate = 0;
+var greatestL = 0;
+var greatestLDate = 0;
+
+totalMonths = finances.length;
+for(var loop=0; loop < totalMonths; loop++)
+{
+    netTotal += finances[loop][1];
+}
+
+console.log("Financial Analysis");
+console.log("----------------------------")
+console.log("Total Months: "+ totalMonths);
+console.log("Total: $" + netTotal);
+console.log("Average  Change: $" + averagePL);
+console.log("Greatest Increase in Profits: " + greatestPDate + " (" + greatestP + ")");
+console.log("Greatest Decrease in Profits: " + greatestLDate + " (" + greatestL + ")");
