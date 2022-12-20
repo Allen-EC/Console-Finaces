@@ -38,15 +38,15 @@ N/A
 The code is run in the background.
 In order to see the results, please open a console.
 * For Chrome:
- * Press Option + ⌘ + J on macOS.
- * Press Shift + CTRL + J on Windows/Linux.
+  * Press Option + ⌘ + J on macOS.
+  * Press Shift + CTRL + J on Windows/Linux.
 * For Firefox:
- * Press Shift + ⌘ + J on macOS.
- * Press Shift + CTRL + J on Windows/Linux.
+  * Press Shift + ⌘ + J on macOS.
+  * Press Shift + CTRL + J on Windows/Linux.
 * For Safari:
- * Press Option + ⌘ + C
+  * Press Option + ⌘ + C
 * For Edge:
- * Press CTRL + Shift + i
+  * Press CTRL + Shift + i
  
 ## Credits
 
