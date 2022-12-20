@@ -87,24 +87,62 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-var totalMonths = 0;
-var netTotal = 0;
-var averagePL = 0;
-var greatestP = 0;
-var greatestPDate = 0;
-var greatestL = 0;
-var greatestLDate = 0;
 
+// Lets declare the variables used in the application, and initalise all to 0 so we have known values to start.
+var totalMonths = 0;
+var profitlossTotal = 0;
+var totalChange = 0;
+var averageChange = 0;
+var currentChange = 0;
+var greatestProfitIncrease = 0;
+var greatestProfitChangeDate = 0;
+var greatestProfitDecrease = 0;
+var greatestProfitDecreaseDate = 0;
+
+//  Find the total number of months in the dataset.
 totalMonths = finances.length;
-for(var loop=0; loop < totalMonths; loop++)
+
+//  Now work our way through the dataset, one at a time. 
+for(var loop=0; loop < totalMonths-1; loop++)
 {
-    netTotal += finances[loop][1];
+    profitlossTotal += finances[loop][1];
+
+    //  Change will be the difference between next month and this month eg NM-TM.
+    currentChange = (finances[loop+1][1] - finances[loop][1]);
+    totalChange += currentChange;
+
+    // check to see if this is the greatest increase in profits so far?
+    if(currentChange > greatestProfitIncrease)
+    {
+        //  Update to the newest greatest increase.
+        greatestProfitIncrease = currentChange;
+        greatestProfitChangeDate = finances[loop+1][0];
+    }
+
+    //  If not the greatest positive change, is it the greatest decrease in profits?
+    else if(currentChange < greatestProfitDecrease)
+    {
+        //  Update to newest greatest decrease.
+        greatestProfitDecrease = currentChange;
+        greatestProfitDecreaseDate = finances[loop+1][0];
+    }
 }
 
-console.log("Financial Analysis");
-console.log("----------------------------")
-console.log("Total Months: "+ totalMonths);
-console.log("Total: $" + netTotal);
-console.log("Average  Change: $" + averagePL);
-console.log("Greatest Increase in Profits: " + greatestPDate + " (" + greatestP + ")");
-console.log("Greatest Decrease in Profits: " + greatestLDate + " (" + greatestL + ")");
+// We stopped the loop one short so not to overflow, so we still need to add the last date's profit/loss to the total.
+profitlossTotal += finances[totalMonths-1][1];
+
+// And now calculate the average.
+averageChange = totalChange/(totalMonths-1);
+
+//  Now output the results.
+console.log
+    (
+    "Financial Analysis" + "\n" +
+    "----------------------------" + "\n" +
+    "Total Months: "+ totalMonths + "\n" +
+    "Total: $" + profitlossTotal + "\n" +
+    "Average  Change: $" + averageChange.toFixed(2) + "\n" +
+    "Greatest Increase in Profits: " + greatestProfitChangeDate + " ($" + greatestProfitIncrease + ")" + "\n" +
+    "Greatest Decrease in Profits: " + greatestProfitDecreaseDate + " ($" + greatestProfitDecrease + ")"
+    );
+console.log("\nHave a nice day 😊")
