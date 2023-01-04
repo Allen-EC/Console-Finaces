@@ -29,6 +29,11 @@ The output to the console should resemble the following:
   Greatest Increase in Profits: Feb-2012 ($1926159)
   Greatest Decrease in Profits: Sep-2013 ($-2196167)
   ```
+  
+The finished project can be found on GitHub Pages at:
+ 
+ https://allen-ec.github.io/Console-Finances/
+
 ## Installation
 
 N/A
